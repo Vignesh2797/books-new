@@ -1,0 +1,24 @@
+.title {
+  text-align: center;
+  font-size: 30px;
+  color: indigo;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.form-actions {
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

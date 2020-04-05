@@ -1,0 +1,33 @@
+<body>
+  <div class="container-fluid text-center">
+    <mat-card class="login-card">
+      <mat-card-title>BOOK STORE</mat-card-title>
+      <mat-card-content>
+        <div class="example-container">
+          <form class="login-form" id="login-form" [formGroup]="loginForm">
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" required placeholder="User Name">
+                <mat-error *ngIf="this.loginForm.get('username').invalid">{{getErrorMessage('username')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" required placeholder="Password">
+                <mat-error *ngIf="this.loginForm.get('password').invalid">{{getErrorMessage('password')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-actions">
+              <button class="login-btn" mat-raised-button type="submit" name="submit" color="primary" matTooltip="Login"
+                (click)="onSubmit()" [disabled]="!this.loginForm.valid">LOGIN</button>
+              <button mat-raised-button color="warn" type="button" (click)="openDialog()" matTooltip="Sign up">SIGN
+                UP</button>
+            </div>
+          </form>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</body>

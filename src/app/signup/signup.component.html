@@ -1,0 +1,49 @@
+<div *ngIf="!loading">
+  <h3 class="title">SIGN UP</h3>
+  <form [formGroup]="signupForm">
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" required placeholder="User Name">
+        <mat-error *ngIf="signupForm.get('username').invalid">{{getErrorMessage('username')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" required placeholder="Password">
+        <mat-error *ngIf="signupForm.get('password').invalid">{{getErrorMessage('password')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" required placeholder="Email">
+        <mat-error *ngIf="signupForm.get('email').invalid">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput formControlName="mobile" required type="number" placeholder="Mobile No" autofill="off">
+        <mat-error *ngIf="signupForm.get('mobile').invalid">{{getErrorMessage('mobile')}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="form-actions">
+      <button mat-raised-button class="signupbutton" color="primary" type="submit" [disabled]="!this.signupForm.valid"
+        (click)="onSubmit()" matTooltip="Sign Up">SIGN UP</button>
+      <button class="close-btn" mat-raised-button type="close" mat-dialog-close color="warn"
+        matTooltip="Close">CLOSE</button>
+    </div>
+  </form>
+</div>
+
+
+<mat-card *ngIf="loading" [style.minHeight]="'100%'" [style.minWidth]="'100%'">
+  <mat-card-title>
+    <strong>Loading....</strong>
+  </mat-card-title>
+  <div class="d-flex justify-content-center">
+    <app-atom-spinner [size]="60" [color]="'#4b0082'" [animationDuration]="5000"></app-atom-spinner>
+  </div>
+</mat-card>
